@@ -1,16 +1,49 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
-        And
-        Hello World!
+        Hello from Facelets And Hello World!
         <br />
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <HR></HR>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel for="txtNombre" value="Nombre:"/>
+                <h:inputText id="txtNombre" label="Nombre" required="true" value="#{bPersona.nombre}"/>
+                <h:message for="txtNombre"/>
+
+                <h:outputLabel for="txtApellidoPaterno" value="ApellidoPaterno:"/>
+                <h:inputText id="txtApellidoPaterno" label="Apellido 1" required="true" value="#{bPersona.apellidoPaterno}"/>
+                <h:message for="txtApellidoPaterno"/>
+
+                <h:outputLabel for="txtApellidoMaterno" value="ApellidoMaterno:"/>
+                <h:inputText id="txtApellidoMaterno" label="Apellido 2" required="true" value="#{bPersona.apellidoMaterno}"/>
+                <h:message for="txtApellidoMaterno"/>
+
+                <h:outputLabel for="radioSexo" value="Sexo:"/>
+                <h:selectOneRadio id="radioSexo" label="Sexo" value="#{bPersona.sexo}">
+                    <f:selectItem itemLabel="Masculino" itemValue="M"/>
+                    <f:selectItem itemLabel="Femenino" itemValue="F"/>
+                </h:selectOneRadio>
+                <h:message for="radioSexo"/>
+
+                <h:outputLabel for="cbxCiudad" value="Ciudad:"/>
+                <h:selectOneMenu id="cbxCiudad" label="Ciudad" value="#{bPersona.ciudad}">
+                    <f:selectItem itemLabel="" itemValue=""/>
+                    <f:selectItem itemLabel="Bogota" itemValue="Bogota"/>
+                    <f:selectItem itemLabel="Medellin" itemValue="Medellin"/>
+                    <f:selectItem itemLabel="Cali" itemValue="Cali"/>
+                </h:selectOneMenu>
+                <h:message for="cbxCiudad"/>
+
+                <h:commandButton id="btnEnviar" value="Enviar Datos" action="Envio"/>
+            </h:panelGrid>
+        </h:form>
     </h:body>
 </html>
 
