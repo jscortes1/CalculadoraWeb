@@ -1,4 +1,4 @@
-package logica;
+package analizador;
 
 import java.util.Stack;
 

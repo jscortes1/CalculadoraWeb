@@ -1,6 +1,7 @@
-package logica;
+package analizador;
 
-import java.util.Stack; //Clase para la simulacion de pilas
+import java.util.Stack; //Clase para la simulacion de piimport logica.Sintaxis;
+
 
 public class Postfijo {
     

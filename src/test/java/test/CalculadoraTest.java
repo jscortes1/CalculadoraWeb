@@ -7,7 +7,7 @@
 package test;
 
 
-import logica.Calculadora;
+import analizador.Calculadora;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

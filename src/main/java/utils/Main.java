@@ -1,6 +1,6 @@
 package utils;
 
-import logica.Calculadora;
+import analizador.Calculadora;
 
 
 public class Main {
