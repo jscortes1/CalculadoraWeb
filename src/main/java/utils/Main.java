@@ -1,4 +1,6 @@
-package logica;
+package utils;
+
+import logica.Calculadora;
 
 
 public class Main {
