@@ -28,24 +28,27 @@ public class CalculadoraTest {
     }
     
     
-    @Test(expectedExceptions = ArithmeticException.class)
-    public void noaceptadivion0(){
-        String a="2";
-        String b="0";
-        Calculadora c=new Calculadora();
-        float x=c.evaluar("/", a, b);    
-    }
+    
     
     
     @Test
     public void division(){
         String a="5";
         String b="2";
+        float resultado=2.5f;
         Calculadora c=new Calculadora();
         float x=c.evaluar("/", a, b); 
-        Assert.assertEquals(x, 2.5);
+        Assert.assertEquals(x, resultado);
     }
     
+    @Test(expectedExceptions = ArithmeticException.class)
+    public void divisionpor0(){
+        String a="5";
+        String b="0";
+        float resultado=2.5f;
+        Calculadora c=new Calculadora();
+        float x=c.evaluar("/", a, b); 
+    }
     
     
 }

@@ -11,19 +11,25 @@ public class Calculadora {
     // Tabla de operaciones aritmeticas disponibles, con su respectivo retorno 
     //-----------------------------------------------------------------------------------------------
     
-    public float evaluar(String operacion, String numero1, String numero2) {
-   
+    public float evaluar(String operacion, String numero1, String numero2) throws ArithmeticException{
         // Convertimos los numeros enteros a flotantes
         float num1 = Float.parseFloat(numero1);
         float num2 = Float.parseFloat(numero2);
-   
+
+
+
         if (operacion.equals("+")) return (num1 + num2);
         if (operacion.equals("-")) return (num1 - num2);
         if (operacion.equals("*")) return (num1 * num2);
-        if (operacion.equals("/")) return (num1 / num2); //Añdir al excepcion matematica, division por cero
+        if (operacion.equals("/")){
+            if(num2==0.0f){
+                throw new ArithmeticException("La division por cero no está permitida");
+            }else{
+                return (num1 / num2);
+            }
+        } //Añdir al excepcion matematica, division por cero
         if (operacion.equals("%")) return (num1 % num2);
         if (operacion.equals("^")) return (float) (Math.pow(num1,num2));
-
         return 0;
     }
    
