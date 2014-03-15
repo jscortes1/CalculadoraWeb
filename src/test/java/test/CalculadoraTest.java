@@ -8,6 +8,7 @@ package test;
 
 
 import analizador.Calculadora;
+import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,7 +19,7 @@ import org.testng.annotations.Test;
 public class CalculadoraTest {
  
     @Test
-    public void debeSumarDosNumeros(){
+    public void debeSumarDosNumeros() throws IOException{
         String a="2";
         String b="2";
         float resultado=4;
@@ -32,7 +33,7 @@ public class CalculadoraTest {
     
     
     @Test
-    public void division(){
+    public void division() throws IOException{
         String a="5";
         String b="2";
         float resultado=2.5f;
@@ -42,13 +43,15 @@ public class CalculadoraTest {
     }
     
     @Test(expectedExceptions = ArithmeticException.class)
-    public void divisionpor0(){
+    public void divisionpor0() throws IOException{
         String a="5";
         String b="0";
         float resultado=2.5f;
         Calculadora c=new Calculadora();
         float x=c.evaluar("/", a, b); 
     }
+    
+    
     
     
 }
