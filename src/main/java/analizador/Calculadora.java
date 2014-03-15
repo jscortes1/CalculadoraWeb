@@ -1,13 +1,20 @@
 package analizador;
 
+import java.io.IOException;
 import java.util.Stack; //Clase para la simulacion de piimport logica.Postfijo;
 
 
 public class Calculadora {
     
-    Postfijo postfijo =new Postfijo();// Instanciamos la clase postfijo, que nos retorna el respectivo postfijo
+    Postfijo postfijo;// Instanciamos la clase postfijo, que nos retorna el respectivo postfijo
   
-  
+    Historico historico;
+
+    public Calculadora() throws IOException{
+        postfijo =new Postfijo();
+        historico=new Historico();
+    }
+    
     //-----------------------------------------------------------------------------------------------
     // Tabla de operaciones aritmeticas disponibles, con su respectivo retorno 
     //-----------------------------------------------------------------------------------------------
@@ -41,11 +48,11 @@ public class Calculadora {
     // Algoritmo que realiza el calculo matematico de una expresion postfija
     //-----------------------------------------------------------------------------------------------
     
-    public String calcular(String sintaxis){
+    public String calcular(String sintaxis) throws IOException{
       
       
         String sintaxisPostfija=postfijo.convertir_a_Postfijo(sintaxis);        // Validamos y convertimos la expresion ingresada por el usuario en postfijo
-
+        historico.capturarSintaxisO(sintaxis); //se envia la sintaxis original para ser procesada
         
         //******************************************************************************
         //*            
@@ -92,6 +99,12 @@ public class Calculadora {
         }
 
             //Retorno de resultado, el ultimo numero de la pila
+            //Se almacena el historico 
+            historico.guardarHistorico();
+            
+            historico.capturarResultado(""+pilaNumeros.peek());
+            historico.ordenarHistorico();
+            
             return pilaNumeros.peek();
             
         }else{

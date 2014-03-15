@@ -19,16 +19,52 @@ public class Historico {
     public int i=0;
     public Lector lector;
     public String sintaxisO;
+    public  ArrayList<String> listaH;
+    public String resultado;
+    public String historico;
+    
     public Historico() throws IOException{
-       ArrayList<String> listaH= new ArrayList<String>();
+       listaH= new ArrayList<String>();
        i=0;
        escritor=new Escritor("Documentos/Historico.txt");
        lector=new Lector("Documentos/Historico.txt");
        sintaxisO="";
+       resultado="";
+       historico="";
     }
     
     public void capturarSintaxisO(String sintaxisO){
        this.sintaxisO=sintaxisO;
     }
+    
+    
+    public void cargarHistorico() throws IOException, ClassNotFoundException {
+		Lector lector=new Lector("Documentos/Historico.txt");
+		listaH=(ArrayList<String>) lector.leerLinea();
+
+		lector.cerrarArchivo();
+
+
+	}
+	
+	public void guardarHistorico() throws IOException {
+
+		Escritor escritor=new Escritor("Documentos/Historico.txt");
+		escritor.leerLinea(listaH);
+		escritor.cerrarArchivo();
+
+
+	}
+
+        void capturarResultado(String resultado) {
+            this.resultado=resultado;
+        }
+
+    void ordenarHistorico() {
+        historico=this.sintaxisO+"   "+this.resultado;
+    }
+
+    
+    
     
 }
