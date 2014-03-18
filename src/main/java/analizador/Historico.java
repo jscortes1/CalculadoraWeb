@@ -22,6 +22,7 @@ public class Historico {
     public  ArrayList<String> listaH;
     public String resultado;
     public String historico;
+    public String errores;
     
     public Historico() throws IOException{
        listaH= new ArrayList<String>();
@@ -62,6 +63,10 @@ public class Historico {
 
     void ordenarHistorico() {
         historico=this.sintaxisO+"   "+this.resultado;
+    }
+
+    void capturarValidacion(String errores,boolean validacion) {
+       this.errores=errores;
     }
 
     

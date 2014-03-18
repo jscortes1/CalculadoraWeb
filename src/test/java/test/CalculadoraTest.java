@@ -51,6 +51,14 @@ public class CalculadoraTest {
         float x=c.evaluar("/", a, b); 
     }
     
+    @Test
+    public void calcular() throws IOException{
+        Calculadora c = new Calculadora();
+        
+        String x=c.calcular("(2)(2)");
+        Assert.assertEquals(x, "4");
+    }
+    
     
     
     

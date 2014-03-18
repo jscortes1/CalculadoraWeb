@@ -9,10 +9,16 @@ public class Calculadora {
     Postfijo postfijo;// Instanciamos la clase postfijo, que nos retorna el respectivo postfijo
   
     Historico historico;
+    
+    String errores;
+    
+    boolean validacion;
 
     public Calculadora() throws IOException{
         postfijo =new Postfijo();
         historico=new Historico();
+        errores="";
+        validacion=false;
     }
     
     //-----------------------------------------------------------------------------------------------
@@ -82,29 +88,34 @@ public class Calculadora {
         
             caracterActual=listadoPostfijo[i];                                      // Para almacenar el caracter actual temporalmente
             
-        // Si el caracterActual es un numero, añadalo a la pila, de lo contrario haga la respectiva operacion aritmetica
-        if(Character.isDigit(caracterActual.charAt(0))){
-            pilaNumeros.push(caracterActual);
-        }else{
+            // Si el caracterActual es un numero, añadalo a la pila, de lo contrario haga la respectiva operacion aritmetica
+            if(Character.isDigit(caracterActual.charAt(0))){
+                pilaNumeros.push(caracterActual);
+            }else{
 
-            numero2=pilaNumeros.pop();                                          // Eliminamos el numero de la pila y lo almacenamos como el segundo numero
-            numero1=pilaNumeros.pop();                                          // Eliminamos el numero de la pila y lo almacenamos como el segundo numero
-            operacion=caracterActual;                                           // Guardamos en la variable operacion el carcter actual
+                numero2=pilaNumeros.pop();                                          // Eliminamos el numero de la pila y lo almacenamos como el segundo numero
+                numero1=pilaNumeros.pop();                                          // Eliminamos el numero de la pila y lo almacenamos como el segundo numero
+                operacion=caracterActual;                                           // Guardamos en la variable operacion el carcter actual
 
-            resultado = evaluar(operacion,numero1,numero2);                     //Evaluamos los dos ultimos elemntos eliminados de la pila y guardamos el resultado
+                resultado = evaluar(operacion,numero1,numero2);                     //Evaluamos los dos ultimos elemntos eliminados de la pila y guardamos el resultado
+                errores=errores+numero1+operacion+numero2+"="+resultado+"\n";
+                pilaNumeros.push(""+resultado);                                     // Añadimos el respectivo resultado a la pila
 
-            pilaNumeros.push(""+resultado);                                     // Añadimos el respectivo resultado a la pila
-
-          }
-        }
+              }
+            }
 
             //Retorno de resultado, el ultimo numero de la pila
             //Se almacena el historico 
-            historico.guardarHistorico();
             
+            if(validacion=true){
+                
+                historico.capturarValidacion(errores, validacion);
+            }
             historico.capturarResultado(""+pilaNumeros.peek());
             historico.ordenarHistorico();
+            historico.guardarHistorico();
             
+            errores="";
             return pilaNumeros.peek();
             
         }else{
