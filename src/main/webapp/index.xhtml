@@ -1,52 +1,79 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
-      
     <h:head>
-        <title>Facelet Title</title>
+        <title>CalculadoraWeb</title>
+        <script type="text/javascript">
+            
+            function llevar_a_pantalla()
+            {
+              
+            }
+            
+            </script>
     </h:head>
     <h:body>
-        Hello from Facelets And Hello World!
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <HR></HR>
+              
+        <p:panel header="Calculadora Web">
+            
+            <h:form>  
+                <p:panel id="panel" header="Bienvenido" style="margin-bottom:10px;">  
+                    <p:messages id="messages" />  
+                    <h:panelGrid columns="2">  
+                        <h:outputLabel for="name" value="Digite la Expresion" /><br/><br/>
+                        <p:inputText id="txtpantalla" required="false"/>  
+  
+                          <br/><br/>
+                          
+                    </h:panelGrid>  
+                    <input type="button" value="(" style="width:40px; height:40px" name="botonAbreParentesis"/>
+                        <input type="button" value=")" style="width:40px; height:40px" name="botonCierraParentesis" />
+                        <input type="button" value="^" style="width:40px; height:40px" name="botonPotencia" />
+                        <input type="button" value="√" style="width:40px; height:40px" name="botonRaiz" /><br/>
+                        <input type="button" value="7" style="width:40px; height:40px" name="botonSiete" />
+                        <input type="button" value="8" style="width:40px; height:40px" name="botonOcho" />
+                        <input type="button" value="9" style="width:40px; height:40px" name="botonNueve" />
+                        <input type="button" value="÷" style="width:40px; height:40px" name="botonDividir" /><br/>
+                        <input type="button" value="4" style="width:40px; height:40px" name="botonCuatro" />
+                        <input type="button" value="5" style="width:40px; height:40px" name="botonCinco" />
+                        <input type="button" value="6" style="width:40px; height:40px" name="botonSeis" />
+                        <input type="button" value="x" style="width:40px; height:40px" name="botonMultiplicar" /><br/>
+                        <input type="button" value="1" style="width:40px; height:40px" name="botonUno" />
+                        <input type="button" value="2" style="width:40px; height:40px" name="botonDos" />
+                        <input type="button" value="3" style="width:40px; height:40px" name="botonTres" />
+                        <input type="button" value="-" style="width:40px; height:40px" name="botonRestar" /><br/>
+                        <input type="button" value="0" style="width:40px; height:40px" name="botonCero" />
+                        <input type="button" value="." style="width:40px; height:40px" name="botonPunto" />
+                        <input type="button" value="ce" style="width:40px; height:40px" name="botonBorrar" />
+                        <input type="button" value="+" style="width:40px; height:40px" name="botonSumar" /><br/>
+                        <br/>
+                        <br/>
+                        
+                        
+                <p:outputLabel for="extended" value="Digite su Resultado" />  <br/>
+                        <p:inputText id="extended" required="false" />
+                </p:panel>  
+  
+    <p:commandButton value="Calcular" update="panel" style="margin-right:20px;" />  
+  
+            <h3>Error</h3>  
+                <p:inputTextarea rows="6" cols="33" />
         
+            <h3>Historial</h3>  
+                <p:inputTextarea rows="16" cols="43" />
+            
+                
+            </h:form> 
         
-        <h:form>
-            <h:panelGrid columns="3">
-                <h:outputLabel for="txtNombre" value="Nombre:"/>
-                <h:inputText id="txtNombre" label="Nombre" required="true" value="#{bPersona.nombre}"/>
-                <h:message for="txtNombre"/>
-
-                <h:outputLabel for="txtApellidoPaterno" value="ApellidoPaterno:"/>
-                <h:inputText id="txtApellidoPaterno" label="Apellido 1" required="true" value="#{bPersona.apellidoPaterno}"/>
-                <h:message for="txtApellidoPaterno"/>
-
-                <h:outputLabel for="txtApellidoMaterno" value="ApellidoMaterno:"/>
-                <h:inputText id="txtApellidoMaterno" label="Apellido 2" required="true" value="#{bPersona.apellidoMaterno}"/>
-                <h:message for="txtApellidoMaterno"/>
-
-                <h:outputLabel for="radioSexo" value="Sexo:"/>
-                <h:selectOneRadio id="radioSexo" label="Sexo" value="#{bPersona.sexo}">
-                    <f:selectItem itemLabel="Masculino" itemValue="M"/>
-                    <f:selectItem itemLabel="Femenino" itemValue="F"/>
-                </h:selectOneRadio>
-                <h:message for="radioSexo"/>
-
-                <h:outputLabel for="cbxCiudad" value="Ciudad:"/>
-                <h:selectOneMenu id="cbxCiudad" label="Ciudad" value="#{bPersona.ciudad}">
-                    <f:selectItem itemLabel="" itemValue=""/>
-                    <f:selectItem itemLabel="Bogota" itemValue="Bogota"/>
-                    <f:selectItem itemLabel="Medellin" itemValue="Medellin"/>
-                    <f:selectItem itemLabel="Cali" itemValue="Cali"/>
-                </h:selectOneMenu>
-                <h:message for="cbxCiudad"/>
-
-                <h:commandButton id="btnEnviar" value="Enviar Datos" action="Envio"/>
-            </h:panelGrid>
-        </h:form>
-    </h:body>
-</html>
-
+            
+        
+        </p:panel>
+            
+        
+   </h:body>
+    
+</xhtml>
