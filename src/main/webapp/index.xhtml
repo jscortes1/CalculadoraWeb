@@ -25,11 +25,15 @@
                     <p:messages id="messages" />  
                     <h:panelGrid columns="2">  
                         <h:outputLabel for="name" value="Digite la Expresion" /><br/><br/>
-                        <p:inputText id="txtpantalla" required="false"/>  
+                        <p:inputText id="txtpantalla" required="false" disabled="true"/>  
   
                           <br/><br/>
                           
+                                                    
                     </h:panelGrid>  
+                    
+                    
+                    
                     <input type="button" value="(" style="width:40px; height:40px" name="botonAbreParentesis"/>
                         <input type="button" value=")" style="width:40px; height:40px" name="botonCierraParentesis" />
                         <input type="button" value="^" style="width:40px; height:40px" name="botonPotencia" />
@@ -56,16 +60,23 @@
                         
                 <p:outputLabel for="extended" value="Digite su Resultado" />  <br/>
                         <p:inputText id="extended" required="false" />
+                        
                 </p:panel>  
   
     <p:commandButton value="Calcular" update="panel" style="margin-right:20px;" />  
   
             <h3>Error</h3>  
-                <p:inputTextarea rows="6" cols="33" />
-        
+                <p:inputTextarea rows="6" cols="33" disabled="true"/>
+                
+                
             <h3>Historial</h3>  
-                <p:inputTextarea rows="16" cols="43" />
+                
             
+                <p:scrollPanel style="width:250px;height:200px">
+                    <p:inputTextarea rows="16" cols="43" disabled="true"/>
+                </p:scrollPanel>
+            
+ 
                 
             </h:form> 
         

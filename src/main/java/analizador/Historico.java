@@ -62,8 +62,12 @@ public void cargarHistorico() throws IOException, ClassNotFoundException {
     }
 
     public void capturarResultado(String resultado) throws IOException {
+        System.out.println(path+"/src/main/java/Documentos/Historico.txt");
+        
         this.resultado=resultado;
         listaH.add(resultado);
+        
+        System.out.println(listaH.toString());
         guardarHistorico();
     }
 

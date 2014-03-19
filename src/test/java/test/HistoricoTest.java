@@ -14,9 +14,15 @@ import org.testng.annotations.Test;
  */
 public class HistoricoTest {
     
+    Historico historico;
+    
+    public HistoricoTest() throws IOException{
+        historico=new Historico();
+    }
+    
     @Test
     public void guardaHistorico() throws IOException, ClassNotFoundException{
-        Historico historico=new Historico();
+        
         historico.capturarResultado("prueba");
     }
     
