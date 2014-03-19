@@ -4,6 +4,7 @@
  */
 package analizador;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import logica.Escritor;
@@ -23,12 +24,14 @@ public class Historico {
     public String resultado;
     public String historico;
     public String errores;
+    String path = new File(".").getCanonicalPath();
+    
     
     public Historico() throws IOException{
        listaH= new ArrayList<String>();
        i=0;
-       escritor=new Escritor("Documentos/Historico.txt");
-       lector=new Lector("Documentos/Historico.txt");
+       escritor=new Escritor(path+"/src/main/java/Documentos/Historico.txt");
+       lector=new Lector(path+"/src/main/java/Documentos/Historico.txt");
        sintaxisO="";
        resultado="";
        historico="";
@@ -39,33 +42,36 @@ public class Historico {
     }
     
     
-    public void cargarHistorico() throws IOException, ClassNotFoundException {
-		Lector lector=new Lector("Documentos/Historico.txt");
-		listaH=(ArrayList<String>) lector.leerLinea();
+public void cargarHistorico() throws IOException, ClassNotFoundException {
 
-		lector.cerrarArchivo();
+            Lector lector=new Lector(path+"/src/main/java/Documentos/Historico.txt");
+            listaH=(ArrayList<String>) lector.leerLinea();
+
+            lector.cerrarArchivo();
 
 
-	}
+    }
 	
-	public void guardarHistorico() throws IOException {
+    public void guardarHistorico() throws IOException {
 
-		Escritor escritor=new Escritor("Documentos/Historico.txt");
-		escritor.leerLinea(listaH);
-		escritor.cerrarArchivo();
+            Escritor escritor=new Escritor(path+"/src/main/java/Documentos/Historico.txt");
+            escritor.leerLinea(listaH);
+            escritor.cerrarArchivo();
 
 
-	}
+    }
 
-        void capturarResultado(String resultado) {
-            this.resultado=resultado;
-        }
+    public void capturarResultado(String resultado) throws IOException {
+        this.resultado=resultado;
+        listaH.add(resultado);
+        guardarHistorico();
+    }
 
-    void ordenarHistorico() {
+    public void ordenarHistorico() {
         historico=this.sintaxisO+"   "+this.resultado;
     }
 
-    void capturarValidacion(String errores,boolean validacion) {
+    public void capturarValidacion(String errores,boolean validacion) {
        this.errores=errores;
     }
 

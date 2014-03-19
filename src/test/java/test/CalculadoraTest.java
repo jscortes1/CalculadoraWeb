@@ -56,7 +56,7 @@ public class CalculadoraTest {
         Calculadora c = new Calculadora();
         
         String x=c.calcular("(2)(2)");
-        Assert.assertEquals(x, "4");
+        Assert.assertEquals(x, "4.0");
     }
     
     
