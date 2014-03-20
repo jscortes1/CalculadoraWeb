@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        
+        
+    </h:body>
+    <p:panelMenu>
+            <p:submenu label="Articoli">
+                <p:menuitem value="Anagrafica" action="/articoli/anagrafica" icon="ui-icon-document" ajax="false" />
+                <p:menuitem value="Importazione" action="/articoli/importazione" ajax="false" />
+                <p:menuitem value="Marchi" action="/articoli/marchi" ajax="false" />
+            </p:submenu>
+            <p:submenu label="Clienti">
+                <p:menuitem value="Anagrafica" action="/clienti/anagrafica" ajax="false" />
+            </p:submenu>
+            <p:submenu label="Vendite" icon="ui-icon-suitcase">
+                <p:menuitem value="Point Of Sale" action="/vendite/pos" ajax="false" />
+            </p:submenu>
+            <p:submenu label="Utilita" icon="ui-icon-calculator">
+                <p:menuitem value="TestPDF" action="#{menuController.getTestPdf()}" ajax="false" />
+            </p:submenu>
+        </p:panelMenu>
+</html>
+
