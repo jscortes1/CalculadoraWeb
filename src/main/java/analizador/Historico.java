@@ -73,6 +73,7 @@ public void cargarHistorico() throws IOException, ClassNotFoundException {
 
     public void ordenarHistorico() {
         historico=this.sintaxisO+"   "+this.resultado;
+        listaH.add(historico);
     }
 
     public void capturarValidacion(String errores,boolean validacion) {
